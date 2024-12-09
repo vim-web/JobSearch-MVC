@@ -1,0 +1,72 @@
+﻿@model MVCproj.Models.CompInsert
+@{
+    ViewBag.Title = "insert_comp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Company Insertion</h2>
+<div>
+    @using (Html.BeginForm("Comp_Insertclick", "CompReg", FormMethod.Post))
+    {
+        <div>
+            <label>Company Name:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Cname)
+            @Html.ValidationMessageFor(m => m.Cname)
+        </div>
+        <div>
+            <label>E mail:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.email)
+            @Html.ValidationMessageFor(m => m.email)
+        </div>
+        <div>
+            <label>Phone:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.phone)
+            @Html.ValidationMessageFor(m => m.phone)
+        </div>
+        <div>
+            <label>Address:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.address)
+            @Html.ValidationMessageFor(m => m.address)
+        </div>
+        <div>
+            <label>Website:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.website)
+            @Html.ValidationMessageFor(m => m.website)
+        </div>
+        <div>
+            <label>User Name:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.username)
+            @Html.ValidationMessageFor(m => m.username)
+        </div>
+        <div>
+            <label>Password:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.pass)
+        </div>
+        <div>
+            <label>Confirm Password:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.cpassword)
+            @Html.ValidationMessageFor(m => m.cpassword)
+        </div>
+        <div>
+            <input type="submit" value="Insert" />
+            @Html.DisplayFor(m => m.adminmsg)
+        </div>
+    }
+</div>
+

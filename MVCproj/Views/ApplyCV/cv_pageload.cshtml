@@ -1,0 +1,21 @@
+﻿@model MVCproj.Models.CVApply
+@{
+    ViewBag.Title = "cv_pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Apply</h2>
+<div>
+    @using (Html.BeginForm("apply_click", "ApplyCV", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <label>Photo:</label>
+        </div>
+        <div>
+            @Html.TextBox("file", "", new { Type = "file" })
+        </div>
+        <div>
+            <input type="submit" value="Apply" />
+        </div>
+    }
+</div>

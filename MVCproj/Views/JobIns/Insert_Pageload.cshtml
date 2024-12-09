@@ -1,0 +1,44 @@
+﻿@model MVCproj.Models.JobInsert
+@{
+    ViewBag.Title = "Insert_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Job Registration</h2>
+<div>
+    @using (Html.BeginForm("InsertJob_ck", "JobIns", FormMethod.Post,new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <label> Job Title </label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.JobTitle)
+            @Html.ValidationMessageFor(m => m.JobTitle)
+        </div>
+        <div>
+            <label>Job Description</label>
+        </div>
+        <div>
+            @Html.TextAreaFor(m => m.JobDes)
+            @Html.ValidationMessageFor(m => m.JobDes)
+        </div>
+        <div>
+            <label>Job Skills</label>
+        </div>
+        <div>
+            @Html.TextAreaFor(m => m.JobSkls)
+            @Html.ValidationMessageFor(m => m.JobSkls)
+        </div>
+        <div>
+            <label>Closing Date</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.closingdate)
+        </div>
+        <div>
+            <input type="submit" value="Insert" />
+            @Html.DisplayFor(m => m.Cmsg)
+        </div>
+    }
+    </div>
+

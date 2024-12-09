@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MVCproj.Models.JobView>
+@{
+    ViewBag.Title = "JobView_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Job Openings</h2>
+<div>
+    @using (Html.BeginForm("JobView_Pageload", "ViewJob", FormMethod.Get))
+    {
+        <table class="table">
+            <tr>
+                <th>Job Title</th>
+                <th>Job Description</th>
+                <th>Skills Required</th>
+                <th>Closing Date</th>
+                <th>Status</th>
+            </tr>
+            @foreach (var item in ViewBag.openings)
+            {
+                <tr>
+                    <td>@item.job_title</td>
+                    <td>@item.jb_des</td>
+                    <td>@item.jb_skills</td>
+                    <td>@item.closing_date</td>
+                    <td>@item.status</td>
+
+
+                </tr>
+            }
+        </table>
+    }
+</div>
+

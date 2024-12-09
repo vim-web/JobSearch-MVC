@@ -1,0 +1,79 @@
+﻿@model MVCproj.Models.JobSearch
+@{
+    ViewBag.Title = "Search_index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+<div>
+    @using (Html.BeginForm("search_click", "Search", FormMethod.Post))
+    {
+
+        <table>
+            <tr>
+                <td style="padding-left:8px;"><label>Skills:</label></td>
+                <td>@Html.TextBoxFor(m => m.insertse.skills)</td>
+                <td style="padding-left:8px;"><label>Description:</label></td>
+                <td>@Html.TextBoxFor(m => m.insertse.jobdes)</td>
+                <td style="padding-left:8px;"><label>Status:</label></td>
+                <td>@Html.TextBoxFor(m => m.insertse.jstatus)</td>
+                <td><input type="submit" value="Search" /></td>
+            </tr>
+        </table>
+    }
+</div>
+<div>
+    @using (Html.BeginForm("Search_index", "JobSearch", FormMethod.Get))
+    {
+        if (Model != null)
+        {
+            if (Model.selectjob != null && Model.selectjob.Count != 0)
+            {
+                <table class="table">
+                    <tr>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(m => m.insertse.compid)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.insertse.skills)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.insertse.jobdes)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.insertse.jstatus)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(m => m.insertse.cdate)
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.selectjob)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.compid)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.skills)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.jobdes)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.jstatus)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.cdate)
+                            </td>
+                            <td>
+                                @Html.ActionLink("ApplyNow", "cv_pageload", "ApplyCV", new { cid = item.compid, jid = item.job_id }, null)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+        }
+    }
+</div>
